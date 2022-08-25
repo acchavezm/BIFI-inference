@@ -1,0 +1,5 @@
+*.pyc
+
+data*
+codalab/data*
+utils/fairseq*
