@@ -1,0 +1,34 @@
+{
+    "data": [
+    {
+      "original_src": "a,b,c = map(int,input().split())\nif a == 5 and b == 7 and c == 7) or (a == 7 and b == 5 and c == 7) or (a == 7 and b == 7 c == 5):\n\tprint(\"YES\")\nelse:\n\tprint(\"NO\")",
+      "changed_src": "a = list(str(i) for i in input().split())\nif a.count(\"5\") == 2 and a.count(\"7\") == 1:\n\tprint(\"YES\")\nelse:\n\tprint(\"NO\")",
+      "problem_id": "p04043",
+      "original_id": "s174637486",
+      "changed_id": "s650413845",
+      "language": "Python",
+      "filename_ext": "py",
+      "original_status": "Runtime Error",
+      "returncode": 1,
+      "error_class": "SyntaxError",
+      "error_class_extra": "SyntaxError: unmatched ')'",
+      "error": "  File \"/home/alex/Documents/research/bug-detection/../input/Project_CodeNet/data/p04043/Python/s174637486.py\", line 2\n    if a == 5 and b == 7 and c == 7) or (a == 7 and b == 5 and c == 7) or (a == 7 and b == 7 c == 5):\n                                   ^\nSyntaxError: unmatched ')'\n",
+      "output": ""
+    },
+    {
+      "original_src": "N,X = input().split()\nN,X = int(N), int(X)\nanswer = X+ (N-X)\n\n\ndef rhombus(N,X):\n  \tif N<X:\n        temp = N\n        N = X\n        X = temp \n        \n    if X==1: \n        return N+1\n    if X==0:\n        return 0\n\n    if N%X == 0:\n        return X*(N//X)*2-X\n      \n    else: \n        k = N//X\n        return k*2*X + rhombus(X,N-(k*X))\n\n      \n\nanswer = answer + rhombus(N-X,X)\nprint(answer)",
+      "changed_src": "N,X = input().split()\nN,X = int(N), int(X)\nanswer = X+ (N-X)\n\n\ndef rhombus(N,X):\n  \t\n    if X==1: \n        return N*2-1\n    if X==0:\n        return 0\n\n    if N%X == 0:\n        return X*(N//X)*2-X\n      \n    else: \n        k = N//X\n        return k*2*X + rhombus(X,N-(k*X))\n\n      \n\nanswer = answer + rhombus(N-X,X)\nprint(answer)",
+      "problem_id": "p04048",
+      "original_id": "s311100241",
+      "changed_id": "s323769427",
+      "language": "Python",
+      "filename_ext": "py",
+      "original_status": "Runtime Error",
+      "returncode": 1,
+      "error_class": "TabError",
+      "error_class_extra": "TabError: inconsistent use of tabs and spaces in indentation",
+      "error": "  File \"/home/alex/Documents/research/bug-detection/../input/Project_CodeNet/data/p04048/Python/s311100241.py\", line 8\n    temp = N\nTabError: inconsistent use of tabs and spaces in indentation\n",
+      "output": ""
+    }
+  ]
+}
