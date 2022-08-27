@@ -42,7 +42,9 @@ tgt_dataset_sizes = tgt_dataset.sizes if tgt_dataset is not None else None
 23. Copiar los contenidos del dataset de CodeNetPy (descripciones de problemas, codenetpy_train.json y codenetpy_test.json) en este directorio anterior
 24. Correr el notebook eda.ipynb para el análisis exploratorio de datos
 25. Correr el notebook preprocessing.ipynb para el preprocesamiento del dataset
-26. python src/run_fixer_inference.py --round_name inference --gpu_ids '0'
+26. export PYTHONPATH=.
+27. python src/run_fixer_inference.py --round_name inference --gpu_ids '0'
+28. python src/evaluate_fixer_inference.py  --round_name inference
 
 ## Hardware y software usado en este proyecto
 - 1 x NVIDIA Tesla T4 de 16GB
