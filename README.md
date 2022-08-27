@@ -43,3 +43,11 @@ tgt_dataset_sizes = tgt_dataset.sizes if tgt_dataset is not None else None
 24. Correr el notebook eda.ipynb para el análisis exploratorio de datos
 25. Correr el notebook preprocessing.ipynb para el preprocesamiento del dataset
 26. python src/run_fixer_inference.py --round_name inference --gpu_ids '0'
+
+## Hardware y software usado en este proyecto
+- 1 x NVIDIA Tesla T4 de 16GB
+- Driver Version: 510.47.03
+- CUDA Version: 11.6
+- SSD de boot de 50GB
+- SSD para alojar el proyecto de 450GB
+- Google, Debian 10 based Deep Learning VM with CUDA 11.0, M95, Base CUDA 11.0, Deep Learning VM Image with CUDA 11.0 preinstalled.
