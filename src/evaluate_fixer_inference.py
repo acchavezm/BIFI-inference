@@ -43,7 +43,7 @@ def eval_one_pred_obj(pred_obj):
         diff_metric = get_diff_metric(src, pred)
         ret_obj['pred'].append({'tok_format': pred,
                                   'string_format': pred_code,
-                                  'err_obj': res,
+                                  'error_obj': res,
                                   'diff_metric': diff_metric})
     return ret_obj
 
@@ -60,7 +60,8 @@ def eval_one_split(pred_dir_prefix, split, pred_fname, n_workers=80):
     for j in range(len(preds)):
         progid = progids[j]
         preds[j]['progid'] = progid
-        preds[j]['orig_err_obj'] = bads[progid]['err_obj']
+        print(bads[progid])
+        preds[j]['orig_err_obj'] = bads[progid]['error_obj']
         code_toks_raw = bads[progid]['code_toks_joined'].split()
         anonymize_dict = bads[progid]['anonymize_dict']
         if 'window_span' in bads[progid]:
@@ -76,7 +77,7 @@ def eval_one_split(pred_dir_prefix, split, pred_fname, n_workers=80):
     '''
       res: list of {'progid': , 'orig_err_obj': , 'anonymize_dict': ,
                     'src': {'tok_format': , 'string_format': },
-                    'pred': {'tok_format':, 'string_format':, 'err_obj': }
+                    'pred': {'tok_format':, 'string_format':, 'error_obj': }
                     }
     '''
     with open(f'{pred_path.parent}/{pred_path.stem}.evaluated.json', 'w') as f:
@@ -102,7 +103,7 @@ def get_test_result(pred_dir_prefix, pred_fname):
           denom += 1
           denom_by_group[orig_err_type] += 1
           for k, pred_obj in enumerate(eval_obj['pred']):
-            pred_err_obj = pred_obj['err_obj']
+            pred_err_obj = pred_obj['error_obj']
             diff_metric  = pred_obj['diff_metric']
             if (pred_err_obj == 0) and (0 < diff_metric <= 4):
               name = '{:02d}-{}-{:03d}'.format(split, progid, k)
