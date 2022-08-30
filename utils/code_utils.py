@@ -85,12 +85,13 @@ def get_diff_metric(src, pred):
 
 
 
-def tokenize_python_code(code_string):
+def tokenize_python_code(id, code_string):
     try:
         tokens = tokenize(io.BytesIO(code_string.encode('utf8')).readline)
         toks = [t for t in tokens]
     except Exception as e:
-        print (e)
+        print (id)
+        #print (e)
         return 1
     SPECIAL = {'STRING', 'COMMENT', 'INDENT', 'DEDENT', 'NEWLINE', 'NL'}
     IGNORE = {'ENCODING', 'ENDMARKER'}
