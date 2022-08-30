@@ -286,6 +286,7 @@ def _tokenize(readline, encoding):
                 contstr, needcont = '', 0
                 contline = None
             elif needcont and line[-2:] != '\\\n' and line[-3:] != '\\\r\n':
+                #print("first error token")
                 raise TokenError("ERRORTOKEN", (lnum, len(line)))
                 contstr = ''
                 contline = None
@@ -403,6 +404,7 @@ def _tokenize(readline, encoding):
                 else:
                     yield TokenInfo(OP, token, spos, epos, line)
             else:
+                #print("second error token")
                 raise TokenError("ERRORTOKEN", (lnum, pos))
                 pos += 1
     #
